@@ -1,19 +1,24 @@
-# Analysis and Automation Scripts
+# Analysis and Automation
 
-This directory is reserved for reproducible post-processing and parameter-sweep tools.
+These utilities support reproducible analysis after the trainee understands the underlying model manually.
 
-The training progression is intentional:
+## Current utilities
+- `wavelength.py` — wavelength and electrical-length calculations
+- `angular_integration.py` — solid-angle integration of **linear** radiation data over elevation regions
 
-1. First understand individual NEC models manually.
-2. Then automate repetitive sweeps.
-3. Never automate a model you do not understand.
+## Planned utilities
+- NEC output parser
+- parameter-sweep generator/runner
+- convergence report
+- frequency/elevation heatmap generator
+- candidate comparison report
 
-Planned utilities:
-- wavelength/electrical-length calculator;
-- complex-impedance convergence calculator;
-- parameter sweep generator;
-- NEC output parser;
-- frequency/elevation heatmap generator;
-- high-angle versus low-angle integrated-radiation calculator.
+## Rules
+1. Understand an individual model before automating it.
+2. Preserve units, parameters, solver warnings, failed runs, and model revision.
+3. Never silently drop invalid runs.
+4. Never integrate dB values directly. Convert to a linear power-like quantity first.
+5. Confirm angular conventions before post-processing.
+6. Generated plots must state exactly what quantity is shown: directivity, gain, realized gain, or normalized level.
 
-Automation must retain model parameters, units, failures, and solver warnings. A script that produces a clean plot while silently dropping bad runs is unacceptable.
+Automation exists to make experiments reproducible, not to conceal assumptions.
