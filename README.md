@@ -1,44 +1,47 @@
 # EM Modeling Training
 
-A hands-on introduction to electromagnetic modeling for engineers using Linux and **xnec2c/NEC2**.
+A hands-on antenna-theory and electromagnetic-modeling course for engineers, culminating in a **5–35 MHz HF/NVIS antenna design study**.
 
-The goal is not to teach button-clicking. Every lesson follows the engineering loop:
+The trainee is assumed to be new to antenna engineering. The course therefore teaches the physics and the solver together.
 
-1. Predict the physics.
-2. Build the model.
-3. Run the simulation.
-4. Check whether the result makes physical sense.
-5. Perturb the model.
-6. Test numerical convergence.
-7. State what the model does and does not prove.
+## End goal
 
-## Course path
+The capstone is to design and characterize a rapidly deployable HF/NVIS antenna, using an **AS-2259-style crossed/sloping architecture as a reference benchmark**.
 
-| Lesson | Topic | Main idea |
-|---|---|---|
-| [1](lessons/01-dipole-basics/README.md) | Half-wave dipole | Resonance, impedance, pattern, convergence |
-| [2](lessons/02-ground-effects/README.md) | Ground effects | The environment is part of the antenna |
-| [3](lessons/03-wire-radius-bandwidth/README.md) | Radius & bandwidth | Geometry changes electrical behavior |
-| [4](lessons/04-feed-and-matching/README.md) | Feed & matching | Resonance is not the same as matching |
-| [5](lessons/05-parameter-sweeps/README.md) | Sensitivity | Turn simulations into engineering experiments |
-| [6](lessons/06-two-element-array/README.md) | Two-element array | Phase and spacing shape beams |
-| [7](lessons/07-mutual-coupling/README.md) | Mutual coupling | Nearby antennas are not independent |
-| [8](lessons/08-model-validation/README.md) | Model credibility | Verification, validation, and limitations |
+The final study examines impedance, matching, efficiency, high-angle radiation, low-angle radiation, soil, antenna height, deployment tolerances, and wideband behavior from 5–35 MHz.
 
-Finish with the [Final Challenge](exercises/final-challenge.md).
+## Start here
 
-## Suggested progression
+- [Detailed 24-lesson curriculum](CURRICULUM.md)
+- [Course roadmap and phase gates](ROADMAP.md)
+- [Linux/xnec2c setup](setup/linux-xnec2c.md)
 
-Lessons 1–4 build fundamentals. Lessons 5–7 develop engineering analysis habits. Lesson 8 is deliberately solver-agnostic and focuses on deciding whether simulation evidence deserves trust.
+## Learning method
 
-## Linux setup
+Every major experiment follows:
 
-See [setup/linux-xnec2c.md](setup/linux-xnec2c.md).
+**Predict → calculate → model → simulate → explain → perturb → verify → document**
 
-## Expected background
+The goal is not to teach button-clicking. The trainee must understand why the solver produces a result and what evidence is required before trusting it.
 
-Basic circuits, complex impedance, and introductory electromagnetics are useful. No prior EM-solver experience is required.
+## Four phases
+
+### I — Antenna Theory Foundations
+Wavelength, electrical length, current distribution, impedance, resonance, matching, radiation patterns, polarization, gain, efficiency, and bandwidth.
+
+### II — EM Modeling Foundations
+NEC construction, segmentation, convergence, parameter sweeps, sensitivity, verification, validation, and model credibility.
+
+### III — HF/NVIS Engineering
+Ground effects, height in wavelengths, HF/NVIS concepts, low dipoles, inverted-V antennas, crossed/sloping reference geometries, mutual coupling, and feed/common-mode effects.
+
+### IV — 5–35 MHz NVIS Capstone
+Wideband characterization, frequency/elevation maps, integrated high-angle versus low-angle radiation, soil sensitivity, deployment robustness, candidate comparison, final design, and a measurement/validation plan.
+
+## Existing practical material
+
+The original introductory dipole exercise remains available at [lessons/01-dipole-basics](lessons/01-dipole-basics/README.md). Existing later lessons remain useful lab material, but the new [curriculum](CURRICULUM.md) is now the authoritative course sequence while the repository is reorganized around it.
 
 ## Modeling rule
 
-**Never trust a plot just because it looks smooth.** A converged answer to the wrong physical model is still the wrong answer.
+**Never trust a plot just because it looks smooth.** A numerically converged answer to the wrong physical model is still the wrong answer.
